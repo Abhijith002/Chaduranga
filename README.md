@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Chaduranga
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A decentralized chess app
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+This is a chess dApp where any two players can stake coins of their choice and play a game of chess. A smart contract deployed on Polygon Mumbai Testnet validates the moves using [Chainlink Any API](https://docs.chain.link/docs/request-and-receive-data/) oracle by calling the external API deployed on google cloud run. Once in checkmate all the coins are transferred to winner's metamask wallet.
 
-### `yarn start`
+## Architecture
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img src="https://github.com/Abhijith002/Chaduranga/blob/52bf16a4dc1953cceba5d6982772cbf56a9712d2/Diagram.png" width="600px" />
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The chess moves are communicated between front end, smart contract and the validator using FEN notation.
 
-### `yarn test`
+- fen -> "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2" | comment -> "king's pawn opening"
+- fen -> "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3" | comment -> "giuoco piano"
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## App
 
-### `yarn build`
+The application can be accessed at [Chaduranga](https://chaduranga-1296a.web.app/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Libraries used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Chessground](https://github.com/ruilisi/react-chessground).
+- [Chess.js](https://github.com/jhlywa/chess.js/blob/master/README.md)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Web3.js](https://web3js.readthedocs.io/en/v1.5.2/)
+- [Truffle](https://trufflesuite.com/)
+- [ChainLink](https://github.com/smartcontractkit/chainlink/tree/master/contracts)
+- [Moralis](https://docs.moralis.io/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Steps to play
 
-### `yarn eject`
+- User has to create a new game by clicking on the `CREATE NEW GAME` button.
+- Enter the `Nickname` and `Number of tokens` to stake.
+- Metamask pops up asking for transaction confirmation to transfer the tokens to the smart contract.
+- Upon successful transaction fresh chess board appears with the 5 letter `game ID` at the top.
+- Pass the game ID to the opponent who can click on `JOIN GAME` button and enter the `game ID`, `Nickname` and `Number of tokens` to stake.
+- Once the opponent confirms the transaction the game will begin.
+- Upon each move metamask will popup asking for a gas fee which needs to be sent mandatorily to proceed with the game.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Limitations
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Currently only two players can play at any given point of time.
+- Gas fees needs to be paid on each chess move since there is a state change in the smart contract.
+- The chess move validation is done using an external API which is called from the smart contract using Chainlink oracles. Hence the contract should have sufficient LINK to execute and validate the chess moves.
+- Time controls are not available since there is no backend server but ony Moralis.
+- The person who creates the game will always have white pieces.
+- Since there is not backend server the application state is entirely stored in the front end. Hence any refresh to the DOM will cause app inconsistency.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## TODO
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Time control.
+- Players can choose pieces.
+- Gas fee reduction.
