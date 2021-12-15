@@ -8,7 +8,7 @@ This is a chess dApp where any two players can stake coins of their choice and p
 
 ## Architecture
 
-<img src="https://github.com/Abhijith002/Chaduranga/blob/52bf16a4dc1953cceba5d6982772cbf56a9712d2/Diagram.png" width="600px" />
+<img src="https://github.com/Abhijith002/chadurangamoralis/blob/210f9d5f1da780cd54cfd8c0d5e26f371fa3fad1/Diagram.png" width="600px" />
 
 The chess moves are communicated between front end, smart contract and the validator using FEN notation.
 
