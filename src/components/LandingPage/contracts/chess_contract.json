@@ -1,0 +1,367 @@
+{
+    "abi": [
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_link",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "internalType": "bytes32",
+                    "name": "id",
+                    "type": "bytes32"
+                }
+            ],
+            "name": "ChainlinkCancelled",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "internalType": "bytes32",
+                    "name": "id",
+                    "type": "bytes32"
+                }
+            ],
+            "name": "ChainlinkFulfilled",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "internalType": "bytes32",
+                    "name": "id",
+                    "type": "bytes32"
+                }
+            ],
+            "name": "ChainlinkRequested",
+            "type": "event"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "_requestId",
+                    "type": "bytes32"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_data",
+                    "type": "uint256"
+                }
+            ],
+            "name": "fulfill",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "winner",
+                    "type": "string"
+                }
+            ],
+            "name": "GameOver",
+            "type": "event"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_oracle",
+                    "type": "address"
+                },
+                {
+                    "internalType": "bytes32",
+                    "name": "_jobId",
+                    "type": "bytes32"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_payment",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_url",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_path",
+                    "type": "string"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "_times",
+                    "type": "int256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "from",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "to",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "color",
+                    "type": "string"
+                }
+            ],
+            "name": "play",
+            "outputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "requestId",
+                    "type": "bytes32"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "from",
+                    "type": "string"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "to",
+                    "type": "string"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "color",
+                    "type": "string"
+                }
+            ],
+            "name": "Played",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "nickname",
+                    "type": "string"
+                }
+            ],
+            "name": "PlayerJoined",
+            "type": "event"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "game_id",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "nickname",
+                    "type": "string"
+                }
+            ],
+            "name": "register",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "reset",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "data",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "finished",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getChainlinkToken",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getPlayers",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "internalType": "string",
+                            "name": "game_id",
+                            "type": "string"
+                        },
+                        {
+                            "internalType": "string",
+                            "name": "nickname",
+                            "type": "string"
+                        },
+                        {
+                            "internalType": "address",
+                            "name": "player_address",
+                            "type": "address"
+                        }
+                    ],
+                    "internalType": "struct Chess.Game[2]",
+                    "name": "",
+                    "type": "tuple[2]"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getTurn",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "index",
+            "outputs": [
+                {
+                    "internalType": "uint8",
+                    "name": "",
+                    "type": "uint8"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "isFinished",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "move",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "from",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "to",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "color",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "turn",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ],
+    "networks": {
+        "80001": {
+            "events": {},
+            "links": {},
+            "address": "0xAaeb66b1FED3FCa05D35efc6C3f3562756cf39c8",
+            "transactionHash": "0x688b424263e493e83be15edfae624b1fb5351443080ff9a45cd46548b45d0a03"
+        }
+    },
+    "chessvalidator": {
+        "url": "https://chessmovevalidator-bvvraqmtca-uc.a.run.app/fenvalidator/?fen=",
+        "oracle": "0x58bbdbfb6fca3129b91f0dbe372098123b38b5e9",
+        "jobID": "0x6461323061616530653463383433663639343965356362336637636665386334",
+        "fee": 10000000000000000,
+        "path": "result",
+        "times": 100
+    }
+}

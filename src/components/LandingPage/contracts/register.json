@@ -1,0 +1,23 @@
+{
+    "address": "0xa7deB55706c8fD124eCeaD0AA48b74cE803e4a83",
+    "abi": [
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "game_id",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "nickname",
+                    "type": "string"
+                }
+            ],
+            "name": "register",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+        }
+    ]
+}
